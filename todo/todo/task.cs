@@ -31,4 +31,10 @@ class Task
         set;
     }
 
+    public void UpdatePriority(string newPriority)
+    {
+        Priority = newPriority;
+    }
+    
+
 }
