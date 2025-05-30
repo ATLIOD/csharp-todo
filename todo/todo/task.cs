@@ -1,9 +1,34 @@
+namespace todo;
+
 class Task
 {
-    private int id;
-    public string title;
-    public string priority;
-    public DateTime created_at;
-    public DateTime updated_at;
+    private int Id{
+        get;
+        set;
+    }
+
+    public required string Title
+    {
+        get;
+        set;
+    }
+    
+    public required string Priority
+    {
+        get;
+        set;
+    }
+    
+    public DateTime CreatedAt
+    {
+        get;
+        set;
+    }
+    
+    public DateTime UpdatedAt
+    {
+        get;
+        set;
+    }
 
 }
