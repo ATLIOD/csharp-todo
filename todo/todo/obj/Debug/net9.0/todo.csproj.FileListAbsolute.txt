@@ -1,0 +1,15 @@
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/bin/Debug/net9.0/todo
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/bin/Debug/net9.0/todo.deps.json
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/bin/Debug/net9.0/todo.runtimeconfig.json
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/bin/Debug/net9.0/todo.dll
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/bin/Debug/net9.0/todo.pdb
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.GeneratedMSBuildEditorConfig.editorconfig
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.AssemblyInfoInputs.cache
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.AssemblyInfo.cs
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.csproj.CoreCompileInputs.cache
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.sourcelink.json
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.dll
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/refint/todo.dll
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.pdb
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/todo.genruntimeconfig.cache
+/home/Dom/Documents/programming/c#/c#-todo/todo/todo/obj/Debug/net9.0/ref/todo.dll
