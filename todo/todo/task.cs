@@ -1,7 +1,17 @@
+using System.Reflection;
+
 namespace todo;
 
 class Task
 {
+    public Task(int id, string newTitle, string newPriority)
+    {
+        this.Id = id;
+        this.Title = newTitle;
+        this.priotiry = newPriority;
+        this.CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        this.UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    }
     private int Id{
         get;
         set;
@@ -19,13 +29,13 @@ class Task
         set;
     }
     
-    public DateTime CreatedAt
+    public long CreatedAt
     {
         get;
         set;
     }
     
-    public DateTime UpdatedAt
+    public long UpdatedAt
     {
         get;
         set;
