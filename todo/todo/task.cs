@@ -1,16 +1,18 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace todo;
 
 class Task
 {
+    [SetsRequiredMembers]
     public Task(int id, string newTitle, string newPriority)
     {
-        this.Id = id;
-        this.Title = newTitle;
-        this.priotiry = newPriority;
-        this.CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-        this.UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        Id = id;
+        Title = newTitle;
+        Priority = newPriority;
+        CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
     }
     private int Id{
         get;
