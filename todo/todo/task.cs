@@ -33,8 +33,31 @@ class Task
 
     public void UpdatePriority(string newPriority)
     {
-        Priority = newPriority;
+        if (newPriority == Priority)
+        {
+            throw new ApplicationException("Priority is already set");
+        }
+        else if (newPriority != "todo" && newPriority != "inProgress" && newPriority != "completed")
+        {
+            throw new ApplicationException("Entered value is not a valid priority. Priority must be todo, inProgress, or completed");
+        }
+        else
+        {
+            Priority = newPriority;
+        }
     }
-    
+
+    public void UpdateTitle(string newTitle)
+    {
+        if (newTitle == Title)
+        {
+            throw new ApplicationException("Title is already set as the value entered");
+        }
+        else
+        {
+            Title = newTitle;
+        }
+        
+    }
 
 }
