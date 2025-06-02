@@ -1,40 +1,50 @@
+using System.Data.SQLite;
+
 namespace todo;
 class TaskList
 {
-    List<Task> todo = new List<Task>();
-    List<Task> inProgress = new List<Task>();
-    List<Task> completed = new List<Task>();
-    private int NextID;
-    
-    publid void Add(string title, string priority)
+
+    public TaskList(TaskContext context)
     {
-        Task t = new Task(NextID, title, priority);
-        switch(t.priority)
+        var tasks = context.Tasks.ToList();
+
+        todo = tasks.Where(t => t.Priority == "todo").ToList();
+        inProgress = tasks.Where(t => t.Priority == "inProgress").ToList();
+        complete = tasks.Where(t => t.Priority == "complete").ToList();
+    }
+    List<TaskItem> todo = new List<TaskItem>();
+    List<TaskItem> inProgress = new List<TaskItem>();
+    List<TaskItem> complete = new List<TaskItem>();
+    
+    public void Add(string title, string priority)
+    {
+        TaskItem t = new TaskItem(title, priority);
+        switch(t.Priority)
         {
             case "todo":
                 todo.Add(t);
-                NextID++;
                 break;
             case "inProgress":
                 inProgress.Add(t);
-                NextID++;
                 break;
             case "completed":
-                completed.Add(t);
-                NextID++;
+                complete.Add(t);
                 break;
         }
-        //add linq statement here to add to sqlite as well
+        
+        using var context = new TaskContext();
+        context.Tasks.Add(t);
+        context.SaveChanges();
     }
-
+    
     private void DatabaseAdd(int id, string newTitle, string newPriority)
     {
         
     }
 
-    public void Remove(Task t)
+    public void Remove(TaskItem t)
     {
-        switch(t.priority)
+        switch(t.Priority)
         {
             case "todo":
                 todo.Remove(t);
@@ -43,9 +53,12 @@ class TaskList
                 inProgress.Remove(t);
                 break;
             case "completed":
-                completed.Remove(t);
+                complete.Remove(t);
                 break;
         }
-        //add linq statement here to remove in sqlite as well
+        
+        using var context = new TaskContext();
+        context.Tasks.Add(t);
+        context.SaveChanges();
     }
 }
