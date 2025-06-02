@@ -3,12 +3,20 @@ using System.Reflection;
 
 namespace todo;
 
-class Task
+public class TaskItem
 {
     [SetsRequiredMembers]
-    public Task(int id, string newTitle, string newPriority)
+    public TaskItem(int id, string newTitle, string newPriority)
     {
         Id = id;
+        Title = newTitle;
+        Priority = newPriority;
+        CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+    }
+    [SetsRequiredMembers]
+    public TaskItem(string newTitle, string newPriority)
+    {
         Title = newTitle;
         Priority = newPriority;
         CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
@@ -55,7 +63,10 @@ class Task
         }
         else
         {
+            using var context = new TaskContext();
             Priority = newPriority;
+            UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            context.SaveChanges();   
         }
     }
 
@@ -67,7 +78,9 @@ class Task
         }
         else
         {
+            using var context = new TaskContext();
             Title = newTitle;
+            context.SaveChanges();
         }
         
     }
