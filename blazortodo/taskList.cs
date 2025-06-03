@@ -5,20 +5,25 @@ namespace blazortodo;
 class TaskList
 {
 
-    public TaskList(TaskContext context)
+    public TaskList()
     {
-        var tasks = context.Tasks.ToList();
+        _context.Database.EnsureCreated();
+        var tasks = _context.Tasks.ToList();
 
         todo = tasks.Where(t => t.Priority == "todo").ToList();
         inProgress = tasks.Where(t => t.Priority == "inProgress").ToList();
-        complete = tasks.Where(t => t.Priority == "complete").ToList();
+        complete = tasks.Where(t => t.Priority == "completed").ToList();
     }
-    List<TaskItem> todo = new List<TaskItem>();
-    List<TaskItem> inProgress = new List<TaskItem>();
-    List<TaskItem> complete = new List<TaskItem>();
+    
+    private readonly TaskContext _context =  new TaskContext();       
+    
+    public List<TaskItem> todo = new List<TaskItem>();
+    public List<TaskItem> inProgress = new List<TaskItem>();
+    public List<TaskItem> complete = new List<TaskItem>();
     
     public void Add(string title, string priority)
     {
+        System.Diagnostics.Debug.WriteLine("tasklist/add called");
         TaskItem t = new TaskItem(title, priority);
         switch(t.Priority)
         {
@@ -33,16 +38,10 @@ class TaskList
                 break;
         }
         
-        using var context = new TaskContext();
-        context.Tasks.Add(t);
-        context.SaveChanges();
+        _context.Tasks.Add(t);
+        _context.SaveChanges();
     }
     
-    private void DatabaseAdd(int id, string newTitle, string newPriority)
-    {
-        
-    }
-
     public void Remove(TaskItem t)
     {
         switch(t.Priority)
@@ -58,8 +57,7 @@ class TaskList
                 break;
         }
         
-        using var context = new TaskContext();
-        context.Tasks.Add(t);
-        context.SaveChanges();
+        _context.Tasks.Add(t);
+        _context.SaveChanges();
     }
 }

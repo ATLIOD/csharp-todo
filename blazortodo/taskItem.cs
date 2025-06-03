@@ -5,7 +5,10 @@ namespace blazortodo;
 
 public class TaskItem
 {
-    [SetsRequiredMembers]
+    public TaskItem()
+    {
+    }
+
     public TaskItem(int id, string newTitle, string newPriority)
     {
         Id = id;
@@ -14,7 +17,6 @@ public class TaskItem
         CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
     }
-    [SetsRequiredMembers]
     public TaskItem(string newTitle, string newPriority)
     {
         Title = newTitle;
@@ -22,18 +24,19 @@ public class TaskItem
         CreatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
         UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
     }
-    private int Id{
+    
+    public int Id{
         get;
         set;
     }
 
-    public required string Title
+    public string? Title
     {
         get;
         set;
     }
     
-    public required string Priority
+    public string? Priority
     {
         get;
         set;

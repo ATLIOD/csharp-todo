@@ -1,7 +1,85 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<div class="task-form">
+    <EditForm Model=@newTask FormName="AddTaskForm" OnSubmit=@SubmitTask>
+        <input placeholder="Title" @bind="newTask.Title" />
+        <select @bind="newTask.Priority">
+            <option value="todo">To Do</option>
+            <option value="inProgress">In Progress</option>
+            <option value="completed">Completed</option>
+        </select>
+        <button type="submit">Add</button>
+    </EditForm>
+</div>
+
+<div>
+    To-do
+</div>
+<ul>
+    @foreach (var task in _taskList.todo)
+    {
+        <li>
+            <div>
+               @task.Title
+            </div>
+            <div>
+               @task.Priority
+            </div>
+        </li>
+    }
+</ul>
+<div>
+    In Progress
+</div>
+<ul>
+    @foreach (var task in _taskList.inProgress)
+    {
+        <li>
+            <div>
+                @task.Title
+            </div>
+            <div>
+                @task.Priority
+            </div>
+        </li>
+    }
+</ul>
+<div>
+    Complete
+</div>
+<ul>
+    @foreach (var task in _taskList.complete)
+    {
+        <li>
+            <div>
+                @task.Title
+            </div>
+            <div>
+                @task.Priority
+            </div>
+        </li>
+    }
+</ul>
+
+@code {
+    
+    private TaskList _taskList = new();
+    public TaskItem newTask = new();
+
+    void SubmitTask()
+    {
+        System.Diagnostics.Debug.WriteLine("reached submit/add");
+        Console.WriteLine($"Title: {newTask.Title}, Priority: {newTask.Priority}");
+        _taskList.Add(newTask.Title, newTask.Priority);
+        System.Diagnostics.Debug.WriteLine("after submit/add");
+
+        newTask = new();
+
+        StateHasChanged();
+    }   
+}
+

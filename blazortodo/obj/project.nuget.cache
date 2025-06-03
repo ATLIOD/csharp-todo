@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9OuQLyyRHiE=",
+  "dgSpecHash": "2oUE3g13fHY=",
   "success": true,
-  "projectFilePath": "/home/Dom/Documents/programming/c#/blazortodo/blazortodo.csproj",
+  "projectFilePath": "/home/Dom/Documents/programming/c#/c#-todo/blazortodo/blazortodo.csproj",
   "expectedPackageFiles": [
     "/home/Dom/.nuget/packages/entityframework/6.4.4/entityframework.6.4.4.nupkg.sha512",
     "/home/Dom/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",

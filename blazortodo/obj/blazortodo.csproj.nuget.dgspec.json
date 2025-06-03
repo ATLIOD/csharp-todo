@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/Dom/Documents/programming/c#/blazortodo/blazortodo.csproj": {}
+    "/home/Dom/Documents/programming/c#/c#-todo/blazortodo/blazortodo.csproj": {}
   },
   "projects": {
-    "/home/Dom/Documents/programming/c#/blazortodo/blazortodo.csproj": {
+    "/home/Dom/Documents/programming/c#/c#-todo/blazortodo/blazortodo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/Dom/Documents/programming/c#/blazortodo/blazortodo.csproj",
+        "projectUniqueName": "/home/Dom/Documents/programming/c#/c#-todo/blazortodo/blazortodo.csproj",
         "projectName": "blazortodo",
-        "projectPath": "/home/Dom/Documents/programming/c#/blazortodo/blazortodo.csproj",
+        "projectPath": "/home/Dom/Documents/programming/c#/c#-todo/blazortodo/blazortodo.csproj",
         "packagesPath": "/home/Dom/.nuget/packages/",
-        "outputPath": "/home/Dom/Documents/programming/c#/blazortodo/obj/",
+        "outputPath": "/home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/Dom/.nuget/NuGet/NuGet.Config"
