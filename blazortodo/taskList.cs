@@ -44,6 +44,7 @@ class TaskList
     
     public void Remove(TaskItem t)
     {
+        System.Diagnostics.Debug.WriteLine("reached TaskList.Remove");
         switch(t.Priority)
         {
             case "todo":
@@ -57,7 +58,26 @@ class TaskList
                 break;
         }
         
-        _context.Tasks.Add(t);
+        _context.Tasks.Remove(t);
         _context.SaveChanges();
     }
+
+    public void Move(ref TaskItem t, string newPriority)
+    {
+        if (newPriority == t.Priority)
+        {
+            throw new ApplicationException("Priority is already set");
+        }
+        else if (newPriority != "todo" && newPriority != "inProgress" && newPriority != "completed")
+        {
+            throw new ApplicationException("Entered value is not a valid priority. Priority must be todo, inProgress, or completed");
+        }
+        else
+        {
+            t.Priority = newPriority;
+            t.UpdatedAt = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            _context.SaveChanges();   
+        }
+    }
+    
 }

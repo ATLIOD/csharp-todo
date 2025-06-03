@@ -1,13 +1,14 @@
 ﻿@page "/"
+@inject NavigationManager Nav
 @rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
-
 
 <div class="task-form">
     <EditForm Model=@newTask FormName="AddTaskForm" OnSubmit=@SubmitTask>
         <input placeholder="Title" @bind="newTask.Title" />
         <select @bind="newTask.Priority">
+            <option value="" disabled selected>-- Select Priority --</option>`
             <option value="todo">To Do</option>
             <option value="inProgress">In Progress</option>
             <option value="completed">Completed</option>
@@ -16,55 +17,77 @@
     </EditForm>
 </div>
 
-<div>
-    To-do
-</div>
-<ul>
-    @foreach (var task in _taskList.todo)
-    {
-        <li>
-            <div>
-               @task.Title
-            </div>
-            <div>
-               @task.Priority
-            </div>
-        </li>
-    }
-</ul>
-<div>
-    In Progress
-</div>
-<ul>
-    @foreach (var task in _taskList.inProgress)
-    {
-        <li>
-            <div>
-                @task.Title
-            </div>
-            <div>
-                @task.Priority
-            </div>
-        </li>
-    }
-</ul>
-<div>
-    Complete
-</div>
-<ul>
-    @foreach (var task in _taskList.complete)
-    {
-        <li>
-            <div>
-                @task.Title
-            </div>
-            <div>
-                @task.Priority
-            </div>
-        </li>
-    }
-</ul>
+<div class = "main">
+    <div class = "todo">
+        <div>
+            To-do
+        </div>
+        <ul>
+            @foreach (var task in _taskList.todo)
+            {
+                <li class = "task_item">
+                    <div>
+                        <button @onclick="() => RemoveTask(task)">X</button>
+                    </div>
+                    <div>
+                        @task.Title
+                    </div>
+                    <div>
+                        <button @onclick="() => MoveTaskRight(task)">&gt</button>
+                    </div>
+                    
+                </li>
+            }
+        </ul>
+    </div>
+    <div class = "inProgress">
+        <div>
+            In Progress
+        </div>
+        <ul>
+            @foreach (var task in _taskList.inProgress)
+            {
+                <li class="task_item">
+                    <div>
+                        <button @onclick="() => MoveTaskLeft(task)">&lt</button>
+                    </div>
+                    <div>
+                        <button @onclick="() => RemoveTask(task)">X</button>
+                    </div>
+                    <div>
+                        @task.Title
+                    </div>
+                    <div>
+                        <button @onclick="() => MoveTaskRight(task)">&gt</button>
+                    </div>
 
+                </li>
+            }
+        </ul>
+    </div>
+    <div class = "complete">
+        <div>
+            Complete
+        </div>
+        <ul>
+            @foreach (var task in _taskList.complete)
+            {
+                <li class="task_item">
+                    <div>
+                        <button @onclick="() => MoveTaskLeft(task)">&lt</button>
+                    </div>
+                    <div>
+                        <button @onclick="() => RemoveTask(task)">X</button>
+                    </div>
+                    <div>
+                        @task.Title
+                    </div>
+
+                </li>
+            }
+        </ul>
+    </div>
+</div>
 @code {
     
     private TaskList _taskList = new();
@@ -80,6 +103,61 @@
         newTask = new();
 
         StateHasChanged();
-    }   
+    }
+
+    void RemoveTask(TaskItem thisTask)
+    {
+        System.Diagnostics.Debug.WriteLine("reached removeTask");
+        
+        _taskList.Remove(thisTask);
+        
+        System.Diagnostics.Debug.WriteLine("removed task: ", thisTask.Title);
+        
+        StateHasChanged();
+    }
+    
+    void MoveTaskRight(TaskItem thisTask)
+    {
+        System.Diagnostics.Debug.WriteLine("reached moveTask");
+        
+        Console.WriteLine($"Title: {thisTask.Title}, Priority: {thisTask.Priority}");
+        
+        switch (thisTask.Priority)
+        {
+            case "todo":
+                _taskList.Move(ref thisTask, "inProgress");
+                break;
+            case "inProgress":
+                _taskList.Move(ref thisTask, "completed");
+                break;               
+        }       
+        
+        System.Diagnostics.Debug.WriteLine("moved task: ", thisTask.Title);
+        
+        Nav.NavigateTo(Nav.Uri, forceLoad: true);
+        StateHasChanged();
+    }
+    
+    void MoveTaskLeft(TaskItem thisTask)
+    {
+        Console.WriteLine($"Title: {thisTask.Title}, Priority: {thisTask.Priority}");
+
+        
+        System.Diagnostics.Debug.WriteLine("moved task: ", thisTask.Title);
+        switch (thisTask.Priority)
+        {
+            case "inProgress":
+                _taskList.Move(ref thisTask, "todo");
+                break;
+            case "completed":
+                _taskList.Move(ref thisTask, "inProgress");
+                break;               
+        }
+        
+        System.Diagnostics.Debug.WriteLine("moved task: ", thisTask.Title);
+        
+        Nav.NavigateTo(Nav.Uri, forceLoad: true);
+        StateHasChanged();
+    }
 }
 

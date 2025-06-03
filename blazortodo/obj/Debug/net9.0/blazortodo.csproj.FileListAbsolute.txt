@@ -84,7 +84,6 @@
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/scopedcss/Components/Layout/NavMenu.razor.rz.scp.css
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/scopedcss/bundle/blazortodo.styles.css
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/scopedcss/projectbundle/blazortodo.bundle.scp.css
-/home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/compressed/kv7wwa85cy-w7mf952350.gz
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/compressed/5273oihvf6-bqjiyaj88i.gz
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/compressed/z0v8tl4859-c2jlpeoesf.gz
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/compressed/kw4g0mkxo2-erw9l3u2r3.gz
@@ -146,3 +145,4 @@
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/blazortodo.pdb
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/blazortodo.genruntimeconfig.cache
 /home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/ref/blazortodo.dll
+/home/Dom/Documents/programming/c#/c#-todo/blazortodo/obj/Debug/net9.0/compressed/kv7wwa85cy-7y1zgz4zw9.gz
