@@ -19,9 +19,9 @@
 
 <div class = "main">
     <div class = "todo">
-        <div>
+        <h2 class = "category_title">
             To-do
-        </div>
+        </h2>
         <ul>
             @foreach (var task in _taskList.todo)
             {
@@ -41,9 +41,9 @@
         </ul>
     </div>
     <div class = "inProgress">
-        <div>
+        <h2 class = "category_title">
             In Progress
-        </div>
+        </h2>
         <ul>
             @foreach (var task in _taskList.inProgress)
             {
@@ -64,9 +64,9 @@
         </ul>
     </div>
     <div class = "complete">
-        <div>
+        <h2 class = "category_title">
             Complete
-        </div>
+        </h2>
         <ul>
             @foreach (var task in _taskList.complete)
             {

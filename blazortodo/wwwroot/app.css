@@ -102,6 +102,9 @@ h1:focus {
     margin-bottom: 5px;
 }
 
+.category_title{
+    text-align: center;
+}
 .task_title{
     font-size:24px;
     padding-left: 10px;
