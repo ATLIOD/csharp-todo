@@ -138,3 +138,9 @@ button{
     padding-top: 2px;
     height: 100%;
 }
+
+.task_title{
+    font-size:24px;
+    padding-left: 10px;
+    text-align: center;
+}

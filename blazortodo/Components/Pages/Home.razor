@@ -25,17 +25,17 @@
         <ul>
             @foreach (var task in _taskList.todo)
             {
-                <li class = "task_item">
-                    <div>
-                        <button @onclick="() => RemoveTask(task)">X</button>
-                    </div>
-                    <div>
+                <li class="task_item">
+                    <span class = "task_title">
                         @task.Title
+                    </span>
+                    <div class = "task_buttons_left">
+                            <button @onclick="() => RemoveTask(task)">X</button>
                     </div>
-                    <div>
-                        <button @onclick="() => MoveTaskRight(task)">&gt</button>
+                    <div class = "task_buttons_right">
+                            <button @onclick="() => MoveTaskRight(task)">&gt</button>
                     </div>
-                    
+
                 </li>
             }
         </ul>
@@ -48,17 +48,15 @@
             @foreach (var task in _taskList.inProgress)
             {
                 <li class="task_item">
-                    <div>
-                        <button @onclick="() => MoveTaskLeft(task)">&lt</button>
-                    </div>
-                    <div>
-                        <button @onclick="() => RemoveTask(task)">X</button>
-                    </div>
-                    <div>
+                    <span class = "task_title">
                         @task.Title
+                    </span>
+                    <div class = "task_buttons_left">
+                            <button @onclick="() => MoveTaskLeft(task)">&lt</button>
+                            <button @onclick="() => RemoveTask(task)">X</button>
                     </div>
-                    <div>
-                        <button @onclick="() => MoveTaskRight(task)">&gt</button>
+                    <div class = "task_buttons_right">
+                            <button @onclick="() => MoveTaskRight(task)">&gt</button>
                     </div>
 
                 </li>
@@ -73,14 +71,12 @@
             @foreach (var task in _taskList.complete)
             {
                 <li class="task_item">
-                    <div>
-                        <button @onclick="() => MoveTaskLeft(task)">&lt</button>
-                    </div>
-                    <div>
-                        <button @onclick="() => RemoveTask(task)">X</button>
-                    </div>
-                    <div>
+                    <span class = "task_title">
                         @task.Title
+                    </span>
+                    <div class = "task_buttons_left">
+                            <button @onclick="() => MoveTaskLeft(task)">&lt</button>
+                            <button @onclick="() => RemoveTask(task)">X</button>
                     </div>
 
                 </li>
